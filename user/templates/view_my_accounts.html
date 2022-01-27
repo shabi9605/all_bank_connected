@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&S - MICROFIN | Account</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="/static/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/static/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="/static/assets/css/style.css" rel="stylesheet" />
+    <link href="/static/assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="/static/ssets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+   </head>
+<body>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <!-- <img src="/static/assets/img/logo.png" alt="" /> -->
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown-messages -->
+                    
+                    <!-- end dropdown-messages -->
+                </li>
+
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown alerts-->
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="{% url 'password' %}"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'user_logout' %}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+        </nav>
+        <!-- end navbar top -->
+{% include 'sidebar1.html' %}
+        <!-- navbar side -->
+  
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        {% block content %}
+        <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+            
+    
+        <h2>Welcome, <span id="prof_name">{{ user }}.</span> </h2>
+        <h4 style="font-weight: 300;">It's good to have you here.</h4>   
+        <br>
+
+
+
+        {% for i in curr_user %}
+    <div class="card-deck col-lg-4 col-md-3" >
+    
+       
+        <div class="card" style="background-color: #ff5959;padding:2em;height: 30em;">
+          
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 1.5em;font-weight: bold;">BANK NAME:<span style="color: white;font-size: 1.6em;"> {{i.bank.bankname}}</span></h5>
+            <h5 class="card-title" style="font-size: 1.3em;font-weight: bold;">BANK HOLDER NAME: <span style="color: white;font-size: 1.4em;">{{i.user.username}}</span></h5>
+            <h5 class="card-title" style="font-size: 1.3em;font-weight: bold;">ACCOUNT NUMBER:<span style="color: white;font-size: 1.4em;"> {{i.account_no}}</span></h5>
+            <h5 class="card-title" style="font-size: 1.3em;font-weight: bold;">AMOUNT: <span style="color: white;font-size: 1.4em;">{{i.balance}}.rs</span></h5>
+            <h5 class="card-title" style="font-size: 1.3em;font-weight: bold;">TRANSFER MONEY FROM THIS ACCOUNT</h5>
+            <a href="{% url 'view_reciever_accounts'  i.id %}" style="color: cornsilk;"><button style="background-color: rgb(44, 28, 16);">TRANSFER</button></a>
+
+            
+            
+          </div>
+        </div>
+    </div>
+        
+      {% endfor %}
+
+
+
+      
+
+{% endblock %}
+                
+    <!-- Core Scripts - Include with every page -->
+    <script src="/static/assets/plugins/jquery-1.10.2.js"></script>
+    <script src="/static/assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/assets/plugins/pace/pace.js"></script>
+    
+    <!-- Page-Level Plugin Scripts-->
+    <script src="/static/assets/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/static/assets/plugins/morris/morris.js"></script>
+    <script src="/static/assets/scripts/dashboard-demo.js"></script>
+    
+</body>
+
+</html>

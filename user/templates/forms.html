@@ -1,0 +1,56 @@
+{% extends 'account_dashboard.html' %}
+{% block content %}
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+          <div id="page-wrapper">
+            <div class="row">
+                 <!-- page header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">EMI Form</h1>
+                </div>
+                <!--end page header -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form action="" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    
+                                        <div class="form-group">
+                                        Username<br><input type="text" name="name"><br>
+                                        principle amount<br><input type="number" name="principle"><br>
+                                        rate<br><input type="number" name="rate"><br>
+                                        installament<br><input type="number" name="install"> <br>
+                                            <br>
+                                       <input type="submit" value="Calculate EMI">
+                                            </span>
+                                        </div>
+                                    </form>
+                                    <div class="text-center curr_bal"> 
+                                        <h4></h4> 
+                                        <h1 id="curr_bal" class="btn-info">EMI Rs:{{emi}}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- End Form Elements -->
+                </div>
+            </div>
+        </div>
+        <!-- end page-wrapper -->
+
+    </div>
+    {% endblock %}
+    <!-- end wrapper -->
+
+    
+
+

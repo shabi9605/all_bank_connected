@@ -1,0 +1,152 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&S - MICROFIN | Account</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="/static/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/static/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="/static/assets/css/style.css" rel="stylesheet" />
+    <link href="/static/assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="/static/ssets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+   </head>
+<body>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <!-- <img src="/static/assets/img/logo.png" alt="" /> -->
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- main dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown-messages -->
+                    
+                    <!-- end dropdown-messages -->
+                </li>
+
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i> -->
+                    </a>
+                    <!-- dropdown alerts-->
+                    <!-- end dropdown-alerts -->
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                        </li>
+                        <li><a href="{% url 'password' %}"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'user_logout' %}"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+
+        </nav>
+        <!-- end navbar top -->
+{% include 'sidebar1.html' %}
+        <!-- navbar side -->
+  
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        {% block content %}
+        <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">LOCATIONS</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+            
+            <div>
+               
+               
+               
+               <a href="https://www.google.com/maps/place/State+Bank+of+India/@10.0168363,76.3410835,17z/data=!3m1!4b1!4m5!3m4!1s0x3b080c8affe5ae8d:0xc34c6cee0358150!8m2!3d10.016831!4d76.3432722">
+               <div class="card bg-dark text-white" style="background: url(static/img/2.jpg);background-repeat: no-repeat;height: 15em;">
+                   
+                
+                <div class="card-img-overlay" style="padding-left: 15em;padding-top: 4em;">
+                    
+                  <h5 class="card-title" style="color: rgb(255 255 255);font-weight: bold;font-size: 1.5em;">STATE BANK OF INDIA</h5>
+                  <p class="card-text" style="color: rgb(255 255 255);font-weight: bold;font-size: 1.5em;">CLICK THIS CARD TO GET LOCATION</p>
+                
+                </div>
+            
+              </div></a>
+
+
+              <a href="https://www.google.com/maps/place/Federal+Bank+Thrissur+Regional+Office/@10.5141609,76.2163395,17z/data=!3m1!4b1!4m5!3m4!1s0x3ba7ef781af2e0f7:0xfc224be09c9430e4!8m2!3d10.5140581!4d76.2185423">
+                <div class="card bg-dark text-white" style="background: url(static/img/2.jpg);background-repeat: no-repeat;height: 15em;margin-top: 2em;">
+                    
+                 
+                 <div class="card-img-overlay" style="padding-left: 15em;padding-top: 4em;">
+                     
+                   <h5 class="card-title" style="color: rgb(255 255 255);font-weight: bold;font-size: 1.5em;">FEDERAL BANK</h5>
+                   <p class="card-text" style="color: rgb(255 255 255);font-weight: bold;font-size: 1.5em;">CLICK THIS CARD TO GET LOCATION</p>
+                 
+                 </div>
+             
+               </div></a>
+             
+            
+
+
+
+            </div>
+    
+
+
+{% endblock %}
+                
+    <!-- Core Scripts - Include with every page -->
+    <script src="/static/assets/plugins/jquery-1.10.2.js"></script>
+    <script src="/static/assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/static/assets/plugins/pace/pace.js"></script>
+    
+    <!-- Page-Level Plugin Scripts-->
+    <script src="/static/assets/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="/static/assets/plugins/morris/morris.js"></script>
+    <script src="/static/assets/scripts/dashboard-demo.js"></script>
+   
+    
+</body>
+
+</html>

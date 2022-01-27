@@ -1,0 +1,52 @@
+{% extends 'account_dashboard.html' %}{% load crispy_forms_tags %}
+{% block content %}
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+          <div id="page-wrapper">
+            <div class="row">
+                 <!-- page header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">EMI Form</h1>
+                </div>
+                <!--end page header -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form action="" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    
+                                        <div class="form-group">
+                                       {{u_form|crispy}}{{p_form|crispy}}
+                                            <br>
+                                       <input type="submit" value="Upadte Profile">
+                                            </span>
+                                        </div>
+                                    </form>
+                                    <div class="text-center curr_bal"> 
+                                        <h4></h4> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- End Form Elements -->
+                </div>
+            </div>
+        </div>
+        <!-- end page-wrapper -->
+
+    </div>
+    {% endblock %}
+    <!-- end wrapper -->
+
+    
+
+

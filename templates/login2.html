@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html lang="zxx">
+
+<head>
+    <title>Promote Business Category Bootstrap Responsive Web Template | Home :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Promote Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //Meta tag Keywords -->
+
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="static/css/login.css" type="text/css" media="all" />
+	  <link rel="stylesheet" href="static/css/slider.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="static/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+   <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+<body>
+   <!-- header -->
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-3 d-lg-flex">
+			<div id="logo">
+				<h1> <a href="index.html"><span class="fa fa-rocket"></span> Promote </a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class="active"><a href="{% url 'index' %}">Home</a></li>
+				<li class=""><a href="#about">About Us</a></li>
+				<li class=""><a href="#services">Services</a></li>
+				<li class=""><a href="#portfolio">Portfolio</a></li>
+				<li class=""><a href="#contact">Contact</a></li>
+				 {% if user.is_authenticated %} 
+				{% if user.is_superuser %}
+				 <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                 {% endif %}
+                 {% if user.register.user_type == 'manager' %}
+				  <li><a href="{% url 'account_dashboard' %}">Manager</a></li>
+				 {% endif %}
+                 {% if user.register.user_type == 'customer' %}
+				  <li><a href="{% url 'account_dashboard' %}">Customer</a></li>
+				 {% endif %}
+                 <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                  {% else %}
+				
+				<li class="last-grid"><a href="#register">Register now</a></li>
+				<li><a href="{% url 'user_login' %}">Login</a></li>
+				{% endif %}
+				
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->
+
+
+<!-- banner -->
+<div class="banner" id="home">
+	<div class="layer">
+		<div class="container">
+			<div class="banner-text-w3pvt">
+				<!-- banner slider-->
+				<div class="static/csslider infinity" id="slider1">
+					{% comment %} <input type="radio" name="slides" id="slides_2" />
+					<input type="radio" name="slides" id="slides_3" /> {% endcomment %}
+					<ul class="banner_slide_bg">
+						{% comment %} <li> {% endcomment %}
+							<div class="w3ls_banner_txt">
+				
+						
+					
+							</div>
+						</li>
+						{% comment %} <li> {% endcomment %}
+							<div class="w3ls_banner_txt">
+                        
+
+	<div class="form-box">
+		<div class="header-text">
+			<!-- <h1 style="color:crimson;">Login Form</h1> -->
+    <form action="" method="POST">
+    {% csrf_token %}
+		</div><input placeholder="UPI"  name='upi' type="text" required> <button>login</button>
+	</form>
+    </div>
+
+
+				
+								
+								
+								
+							</div>
+						</li>
+						<li>
+							<div class="w3ls_banner_txt">
+						
+								
+						
+								
+							</div>
+						</li>
+					</ul>
+					<div class="navigation">
+						<div>
+							<label for="slides_1"></label>
+							<label for="slides_2"></label>
+							<label for="slides_3"></label>
+						</div>
+					</div>
+				</div>
+				<!-- //banner slider-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+<footer class="py-md-5 py-3">
+	<div class="container py-md-5 py-3">
+		<div class="row footer-grids">
+			<div class="col-lg-3 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Promote</h4>
+				<p class="mb-3">Onec Consequat sapien ut cursus rhoncus. Nullam dui mi, vulputate ac metus semper quis luctus sed.</p>
+				
+			</div>
+			<div class="col-lg-3 col-sm-6 mb-md-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Address Info</h4>
+				<p><span class="fa mr-2 fa-map-marker"></span>6d canal street TT 3356 <span>Newyork.</span></p>
+				<p class="phone py-2"><span class="fa mr-2 fa-phone"></span> +1(12) 123 456 789 </p>
+				<p><span class="fa mr-2 fa-envelope"></span><a href="mailto:info@example.com">info@example.com</a></p>
+			</div>
+			<div class="col-lg-2 col-sm-6 mb-lg-0 mb-sm-5 mb-4">
+				<h4 class="mb-4">Quick Links</h4>
+				<ul>
+					<li><a href="#register">Register here </a></li>
+					<li class="my-2"><a href="#team">Business Team</a></li>
+					<li><a href="#contact">Support Helpline</a></li>
+					<li class="mt-2"><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<h4 class="mb-4">Subscribe Us</h4>
+				<p class="mb-3">Subscribe to our newsletter</p>
+				<form action="#" method="post" class="d-flex">
+					<input type="email" id="email" name="EMAIL" placeholder="Enter your email here" required="">
+					<button type="submit" class="btn">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- //footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container py-4">
+		<div class=" text-center">
+			<p>© 2019 promote. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a> </p>
+		</div>
+	</div>
+</div>
+<!-- //copyright -->
+		
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+
+
+</body>
+</html>

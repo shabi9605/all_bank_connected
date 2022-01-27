@@ -1,0 +1,115 @@
+
+<html>
+<title>nav</title>
+<body>
+    <link href="/static/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/static/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/static/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="/static/assets/css/style.css" rel="stylesheet" />
+    <link href="/static/assets/css/main-style.css" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="/static/ssets/plugins/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
+      <nav class="navbar-default navbar-static-side" role="navigation">
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <!-- user image section-->
+                        <div class="user-section">
+                            <div class="user-section-inner">
+                                
+                                <img src="{{user.register.image.url}}" alt="">
+                                
+
+                            </div>
+                            <div class="user-info">
+                                <div>{{user.first_name}} <strong>{{user.last_name}}</strong></div>
+                                <div class="user-text-online">
+                                    <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
+                                </div>
+                            </div>
+                        </div>
+                        <!--end user image section-->
+                    </li>
+                    
+                    <li class="selected">
+                        <a href="{% url 'index' %}"><i class="fa fa-dashboard fa-fw"></i>Home</a>
+                    </li>
+
+                    <li class="selected">
+                        <a href="{% url 'create_account' %}"><i class="fa fa-dashboard fa-fw"></i>Create Account</a>
+                    </li>
+                    
+                    <li class="selected">
+                        <a href="{% url 'account_dashboard' %}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    </li>
+                
+                    <li>
+                        <a href="{% url 'view_my_accounts' %}"><i class="fa fa-edit fa-fw"></i>Money Transfer</a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'history' %}"><i class="fa fa-edit fa-fw"></i>Money Transfer History</a>
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'payment:payment' %}"><i class="fa fa-edit fa-fw"></i>Payment</a>
+                    </li>
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="{% url 'admin:index' %}"><i class="fa fa-edit fa-fw"></i>Admin </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'locations' %}"><i class="fa fa-edit fa-fw"></i>LOCATIONS</a>
+                    </li>
+                   
+                    {% endif %}
+                    
+                    {% if user.register.user_type == 'customer' %}
+                    <li class="selected">
+                        <a href="{% url 'chat' %}"><i class="fa fa-dashboard fa-fw"></i>Complaint</a>
+                    </li>
+                    <li class="selected">
+                        <a href="{% url 'mychat' %}"><i class="fa fa-dashboard fa-fw"></i>Complaint Status</a>
+                    </li>
+                    <li class="selected">
+                        <a href="{% url 'paymentview' %}"><i class="fa fa-dashboard fa-fw"></i>Payment View</a>
+                    </li>
+
+                    <li class="selected">
+                        <a href="{% url 'add_reminder' %}"><i class="fa fa-dashboard fa-fw"></i>Add Reminder</a>
+                    </li>
+
+
+                    <li class="selected">
+                        <a href="{% url 'view_reminder' %}"><i class="fa fa-dashboard fa-fw"></i>View My Reminder</a>
+                    </li>
+                    
+                    
+                    
+
+                   
+                {% endif %}    
+                <li class="selected">
+                    <a href="{% url 'reports' %}"><i class="fa fa-dashboard fa-fw"></i>REPORTS</a>
+                </li>    
+                        <!-- second-level-items -->
+                    
+                   
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <script src="static/assets/plugins/jquery-1.10.2.js"></script>
+        <script src="static/assets/plugins/bootstrap/bootstrap.min.js"></script>
+        <script src="/static/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="/static/assets/plugins/pace/pace.js"></script>
+        
+        <!-- Page-Level Plugin Scripts-->
+        <script src="static/assets/plugins/morris/raphael-2.1.0.min.js"></script>
+        <script src="static/assets/plugins/morris/morris.js"></script>
+        <script src="static/assets/scripts/dashboard-demo.js"></script>
+        </body>
+        </html>

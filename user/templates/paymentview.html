@@ -1,0 +1,39 @@
+{% extends 'account_dashboard.html' %}
+
+{% block content %}
+<div id="page-wrapper">
+    <br>
+    <br>
+<h1>Payment Table</h1>
+<table border="1" >
+    <tr>
+    <th>Username</th>
+    <th>Amount Paid</th>
+    <th>Payment ID</th>
+    <th>Order ID</th>
+    <th>Paid Status</th>
+    
+    </tr>
+{% for c in payment %}
+<tr>
+  
+    <td>{{c.user}}</td>
+    <td>{{c.amount}}</td>
+    <td>{{c.payment_id}}</td>
+    <td>{{c.order_id}}</td>
+    <td>{{c.is_paid}}</td>
+   
+    
+</tr>
+{% endfor %}
+</table>
+
+
+
+
+</table>
+
+
+</div>
+
+{% endblock %}
